@@ -23,7 +23,7 @@ Constraints:
 All the integers in nums are unique.
 nums is sorted in ascending order.
 
-Solution:
+Solution: C++
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
@@ -48,3 +48,29 @@ public:
         
     }
 };
+
+Solution : JAVA
+class Solution {
+    public int search(int[] nums, int target) {
+        int n = nums.length;
+        int start = 0;
+        int end = n - 1;
+        while(start <= end){
+            int mid = start + (end - start)/2;
+
+            if(nums[mid] ==  target){
+                return mid;
+            }
+            if(target > nums[mid]){
+                start = mid +1;
+            }
+            else{
+                end = mid - 1;
+            }
+            mid = start + (end - start)/2;
+        }
+        return -1;
+        
+
+    }
+}
